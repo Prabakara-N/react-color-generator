@@ -78,6 +78,7 @@ input {
   padding-left: 1rem;
   border-radius: 5px;
   border: 2px solid transparent;
+  cursor: pointer;
 }
 
 input.error {

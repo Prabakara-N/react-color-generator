@@ -44,9 +44,7 @@ const App = () => {
             className={`${error ? "error" : null} `}
           />{" "}
           <br />
-          {error && (
-            <small className="error">Please enter a valid color code</small>
-          )}
+          {error && <small>Please enter a valid color code</small>}
           <br />
         </div>
         <div className="btn-container">
