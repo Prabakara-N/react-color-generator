@@ -21,7 +21,6 @@ const Color = ({ rgb, weight, index }) => {
   }, [alert]);
 
   const hexValue = rgbToHex(...rgb);
-  console.log(hexValue);
 
   return (
     <div

@@ -4,7 +4,7 @@ import "./styles/normalize.css";
 import Color from "./components/Color";
 import Values from "values.js";
 
-// import { VscColorMode } from "react-icons/vsc";
+import { BsCircleHalf } from "react-icons/bs";
 
 const App = () => {
   const [color, setColor] = useState("");
@@ -27,7 +27,12 @@ const App = () => {
 
   return (
     <div className="main">
-      <h2>Color Generator</h2>
+      <h2>
+        Color Generator
+        <span className="icon">
+          <BsCircleHalf />
+        </span>
+      </h2>
       <form onSubmit={submitHandler}>
         <div className="form-control">
           <input
@@ -41,7 +46,7 @@ const App = () => {
           <br />
           {error && (
             <small className="error">Please enter a valid color code</small>
-          )}{" "}
+          )}
           <br />
         </div>
         <div className="btn-container">

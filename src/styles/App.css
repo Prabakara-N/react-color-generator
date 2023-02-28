@@ -59,6 +59,12 @@ body {
 
 h2 {
   color: white;
+  text-align: center;
+}
+
+.icon {
+  padding-left: 10px;
+  padding-top: 10px;
 }
 
 form {
@@ -238,6 +244,10 @@ small {
   form {
     display: flex;
     gap: 1rem;
+  }
+
+  h2 {
+    text-align: left;
   }
 }
 
