@@ -42,10 +42,213 @@ img {
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: var(--clr-white);
+  background-color: var(--clr-blue);
+  background-color: #011936;
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
+}
+
+/* main */
+.main {
+  width: 95%;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+h2 {
+  color: white;
+}
+
+form {
+  text-align: center;
+}
+
+input {
+  width: 330px;
+  margin: 0 auto;
+  padding: 10px 0;
+  padding-left: 1rem;
+  border-radius: 5px;
+  border: 2px solid transparent;
+}
+
+input.error {
+  border: 2px solid orangered;
+}
+
+small {
+  color: orangered;
+  font-style: oblique;
+}
+
+.btn-container {
+  text-align: center;
+}
+
+/*  */
+.btn {
+  cursor: pointer;
+  margin-bottom: 2.5rem;
+  --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
+  --border-width: 0.125em;
+  --curve-size: 0.5em;
+  --blur: 30px;
+  --bg: #080312;
+  --color: #afffff;
+  color: var(--color);
+  /* use position: relative; so that BG is only for .btn */
+  position: relative;
+  isolation: isolate;
+  display: inline-grid;
+  place-content: center;
+  padding: 0.5em 1.5em;
+  font-size: 17px;
+  border: 0;
+  text-transform: uppercase;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+  clip-path: polygon(
+    /* Top-left */ 0% var(--curve-size),
+    var(--curve-size) 0,
+    /* top-right */ 100% 0,
+    100% calc(100% - var(--curve-size)),
+    /* bottom-right 1 */ calc(100% - var(--curve-size)) 100%,
+    /* bottom-right 2 */ 0 100%
+  );
+  transition: color 250ms;
+}
+
+.btn::after,
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.btn::before {
+  background: var(--border-color);
+  background-size: 300% 300%;
+  animation: move-bg7234 5s ease infinite;
+  z-index: -2;
+}
+
+@keyframes move-bg7234 {
+  0% {
+    background-position: 31% 0%;
+  }
+
+  50% {
+    background-position: 70% 100%;
+  }
+
+  100% {
+    background-position: 31% 0%;
+  }
+}
+
+.btn::after {
+  background: var(--bg);
+  z-index: -1;
+  clip-path: polygon(
+    /* Top-left */ var(--border-width)
+      calc(var(--curve-size) + var(--border-width) * 0.5),
+    calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
+    /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+    calc(100% - var(--border-width))
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    /* bottom-right 1 */
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width)),
+    /* bottom-right 2 */ var(--border-width) calc(100% - var(--border-width))
+  );
+  transition: clip-path 500ms;
+}
+
+.btn:where(:hover, :focus)::after {
+  clip-path: polygon(
+    /* Top-left */ calc(100% - var(--border-width))
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    calc(100% - var(--border-width)) var(--border-width),
+    /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+    calc(100% - var(--border-width))
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+    /* bottom-right 1 */
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width)),
+    /* bottom-right 2 */
+      calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width))
+  );
+  transition: 200ms;
+}
+
+.btn:where(:hover, :focus) {
+  color: #fff;
+}
+/*  */
+
+.color {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.color.color-light {
+  color: aliceblue;
+}
+
+.percentage {
+  font-weight: 600;
+}
+
+.alert-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.alert {
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.25);
+  padding: 3px 7px;
+  border-radius: 5px;
+}
+
+/* media screen */
+@media screen and (min-width: 450px) {
+  input {
+    width: 425px;
+    margin: 0 auto;
+  }
+
+  .color-section {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .color {
+    padding: 10px;
+    width: 200px;
+    height: 80px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  form {
+    display: flex;
+    gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .main {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  form {
+    text-align: left;
+  }
 }
